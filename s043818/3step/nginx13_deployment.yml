@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingress-test-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-test-2
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ingress-test-2
+    spec:
+      volumes:
+      - name: config
+        configMap:
+          name: ingress-test-2
+      containers:
+      - image: nginx:1.13
+        name: ingress-test-2
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/conf.d/
+
+

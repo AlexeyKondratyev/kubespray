@@ -1,0 +1,25 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-test
+spec:
+  rules:
+  - host: my-app.s043818.edu.slurm.io
+    http:
+      paths:
+      - pathType: Prefix
+        path: /1
+        backend:
+          service:
+            name: ingress-test-1
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /2
+        backend:
+          service:
+            name: ingress-test-2
+            port:
+              number: 80
+
