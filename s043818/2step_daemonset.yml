@@ -1,0 +1,35 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: myproxy
+  name: myproxy
+spec:
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: myproxy
+  template:
+    metadata:
+      labels:
+        app: myproxy
+    spec:
+      tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/ingress
+        operator: Exists
+      containers:
+      - name: myproxy
+        image: nginx:1.13
+        ports:
+         - containerPort: 81
+           hostPort: 81
+           protocol: TCP
+
