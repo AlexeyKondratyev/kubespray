@@ -1,0 +1,93 @@
+    1  git clone git@github.com:AlexeyKondratyev/kubespray.git
+    2  ls ~/.ssh/
+    3  cat .ssh/id_rsa.pub 
+    4  git clone git@github.com:AlexeyKondratyev/kubespray.git
+    5  cd kubespray/
+    6  ls -la
+    7  vi _deploy_cluster.sh 
+    8  sh _deploy_cluster.sh s043818
+    9  pip3 install -r requirements.txt
+   10  sh _deploy_cluster.sh s043818
+   11  kubectl get all -A
+   12  sd s043818/
+   13  cd s043818/
+   14  ls 3step/
+   15  vi 1step_deployment.yml 
+   16  kubectl apply -f 1step_deployment.yml 
+   17  kubectl apply -f 2step_daemonset.yml 
+   18  kubectl apply -f 3step/
+   19  kubectl get ingress
+   20  kubectl describe ingress ingress-test
+   21  curl my-app.s043818.edu.slurm.io/1
+   22  curl my-app.s043818.edu.slurm.io/2
+   23  helm
+   24  yum install helm
+   25  helm repo add stable https://charts.helm.sh/stable
+   26  help repo update
+   27  helm repo update
+   28  helm search hub grafana
+   29  helm search hub stable/grafana
+   30  helm search repo stable hub stable/grafana
+   31  helm search repo stable hub grafana
+   32  helm search repo stable 
+   33  helm search repo stable | grep grafana
+   34  helm show values stable/grafana > values.yml
+   35  vi values.yml 
+   36  helm install grafana stable/grafana --namespace monitoring f -values.yml
+   37  helm install grafana stable/grafana --namespace monitoring f values.yml
+   38  helm install grafana stable/grafana --namespace monitoring -f values.yml
+   39  helm install grafana stable/grafana --namespace monitoring -f values.yml --create-namespace
+   40  cd ~
+   41  git clone git@gitlab.slurm.io:slurm/ceph-nautilus.git
+   42  cd ceph-nautilus/
+   43  ls -l
+   44  vi inventory/hosts
+   45  yum -y install ansible sshpass git ca-certificates
+   46  yum -y install ansible python-netaddr
+   47  pip install notario
+   48  pip3 install notario
+   49  git branches
+   50  git branche
+   51  git branch
+   52  vi site.yml
+   53  ls -la
+   54  vi group_vars/all.yml.sample 
+   55  vi group_vars/all.yml
+   56  vi _deploy_cluster.sh 
+   57  vi group_vars/all.yml
+   58  vi inventory/hosts.tmpl 
+   59  vi inventory/hosts
+   60  vi _deploy_cluster.sh 
+   61  sh _deploy_cluster.sh s043818
+   62  pip install pyaml
+   63  pip3 install pyaml
+   64  sh _deploy_cluster.sh s043818
+   65  pip3 install pyyaml
+   66  pip install pyyaml
+   67  sh _deploy_cluster.sh s043818
+   68  vi site.yml
+   69  vi _deploy_cluster.sh 
+   70  vi inventory/hosts.tmpl 
+   71* vi group_vars/all.yml.t
+   72  vi _deploy_cluster.sh 
+   73  vi inventory/group_vars/all.yml
+   74  vi inventory/group_vars/all.yml.tmpl 
+   75  vi inventory/group_vars/all.yml
+   76  vi _deploy_cluster.sh 
+   77  vi inventory/group_vars/all.yml
+   78  sh _deploy_cluster.sh s043818
+   79  git branch -r
+   80  vi roles/ceph-mon/tasks/
+   81  grep -R "waiting for the monitor(s) to form the quorum..." roles/ceph-mon/
+   82  vi roles/ceph-mon/tasks/ceph_keys.yml 
+   83  vi roles/ceph-mon/tasks/
+   84  vi roles/ceph-mon/tasks/ceph_keys.yml 
+   85  sh _deploy_cluster.sh s043818
+   86  git stus
+   87  git status
+   88  cp inventory/group_vars/all.yml ../kubespray/s043818/
+   89  cp inventory/hosts ../kubespray/s043818/
+   90  cp roles/ceph-mon/tasks/ceph_keys.yml ../kubespray/s043818/
+   91  cd ../kubespray/
+   92  history 
+   93  history > s043818/history
